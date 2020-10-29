@@ -13,6 +13,11 @@ provider "azurerm" {
   features {}
 }
 
+resource "azurerm_resource_group" "this" {
+  name     = "buildagents-rg"
+  location = var.location
+}
+
 data "azurerm_virtual_network" "this" {
   name                = var.vnet.name
   resource_group_name = var.vnet.rg
